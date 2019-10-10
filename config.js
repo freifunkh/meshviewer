@@ -4,109 +4,67 @@ module.exports = function () {
     'nodeInfos': [
       {
         'name': 'Clientstatistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=1&var-node={NODE_ID}&from=now-1d&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Clientstatistik für {NODE_ID} - weiteren Statistiken'
-      },
-      {
-        'name': 'Trafficstatistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=2&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Trafficstatistik für {NODE_ID} - weiteren Statistiken'
-      },
-      {
-        'name': 'Systemlast',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=4&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Systemlast für {NODE_ID} - weiteren Statistiken'
-      },
-      {
-        'name': 'Airtime',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=5&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Airtime für {NODE_ID} - weiteren Statistiken'
-      }
-    ],
-    'linkInfos': [
-      {
-        'name': 'Statistik für alle Links zwischen diese Knoten',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/nvSNqoHmz/link?panelId=7&var-node={SOURCE_ID}&var-nodetolink={TARGET_ID}&from=now-1d&&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Linkstatistik des letzten Tages, min und max aller Links zwischen diesen Knoten'
-      }
-    ],
-    'globalInfos': [
-      {
-        'name': 'Globale Statistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000028/globals?panelId=2&from=now-7d&&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Globale Statistik - weiteren Statistiken'
+        'href': 'https://stats.ffh.zone/dashboard/db/router-fur-meshviewer?var-node={NODE_ID}&from=now-12h&to=now-1m',
+        'image': 'https://stats.ffh.zone/render/dashboard-solo/db/router-fur-meshviewer?var-node={NODE_ID}&panelId=1&from=now-12h&to=now-1m&width=510&height=255&theme=light&_t={TIME}',
+        'title': 'Knoten {NODE_ID} - weitere Statistiken'
       }
     ],
     // Array of data provider are supported
     'dataPath': [
-      'https://regensburg.freifunk.net/data/'
+      'https://harvester.ffh.zone/'
     ],
-    'siteName': 'Freifunk Regensburg',
+    'siteName': 'Freifunk Hannover',
     'mapLayers': [
       {
-        'name': 'Freifunk Regensburg',
-        // Please ask Freifunk Regensburg before using its tile server c- example with retina tiles
-        'url': 'https://{s}.tiles.ffrgb.net/{z}/{x}/{y}{retina}.png',
+        'name': 'OSM (by FF Aachen)',
+        'url': 'https:///tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
         'config': {
-          'maxZoom': 20,
-          'subdomains': '1234',
-          'attribution': '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> <a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>',
-          'start': 6
+          'attribution': '<a target="_blank" href="https://www.openstreetmap.org/">Karte hergestellt aus OpenStreetMap-Daten</a> | <a rel="license" target="_blank" href="https://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>',
+          'maxZoom': 19
         }
       },
       {
-        'name': 'Freifunk Regensburg Night',
-        // Please ask Freifunk Regensburg before using its tile server - example with retina and dark tiles
-        'url': 'https://{s}.tiles.ffrgb.net/n/{z}/{x}/{y}{retina}.png',
+        'name': 'Esri.WorldStreetMap (Straßenkarte)',
+        'url': 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
         'config': {
-          'maxZoom': 20,
-          'subdomains': '1234',
-          'attribution': ' <a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> <a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>',
-          'mode': 'night',
-          'start': 19,
-          'end': 7
+          'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
+          'maxZoom': 19
         }
       },
       {
-        'name': 'OpenStreetMap.HOT',
-        'url': 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+        'name': 'Esri.WorldImagery (Satellitenbilder)',
+        'url': 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
         'config': {
-          'maxZoom': 19,
-          'attribution': '&copy; Openstreetmap France | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+          'maxZoom': 19
         }
       },
       {
-        'name': 'HERE',
-        // Please use your own API key - Free plan is on right side after the pay plans
-        'url': 'https://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=YOUR_KEY&app_code=YOUR_CODE&lg=deu',
+        'name': 'ÖPNV',
+        'url': 'https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',
         'config': {
-          'attribution': 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
-          'subdomains': '1234',
+          'attribution': 'Tiles &copy; Memomaps.de, Data CC-BY-SA OpenStreetMap',
+          'maxZoom': 18
+        }
+      },
+      {
+        'name': 'Stamen.TonerLite',
+        'url': 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
+        'config': {
+          'attribution': 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          'subdomains': 'abcd',
+          'minZoom': 0,
           'maxZoom': 20
         }
       },
       {
-        'name': 'Esri.WorldImagery',
-        'url': '//server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        'name': 'Stamen.Watercolor',
+        'url': 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png',
         'config': {
-          'maxZoom': 20,
-          'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        }
-      },
-      {
-        'name': 'HERE.hybridDay',
-        // Please use your own API key - Free plan is on right side after the pay plans
-        'url': 'https://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/{variant}/{z}/{x}/{y}/256/png8?app_id=YOUR_KEY&app_code=YOUR_CODE&lg=deu',
-        'config': {
-          'attribution': 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
-          'subdomains': '1234',
-          'variant': 'hybrid.day',
-          'maxZoom': 20
+          'attribution': 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          'subdomains': 'abcd',
+          'minZoom': 1,
+          'maxZoom': 16
         }
       }
     ],
@@ -114,33 +72,365 @@ module.exports = function () {
     'fixedCenter': [
       // Northwest
       [
-        49.3522,
-        11.7752
+        52.654728,
+        9.179077
       ],
       // Southeast
       [
-        48.7480,
-        12.8917
+        52.134331,
+        10.149994
       ]
     ],
     'domainNames': [
       {
-        'domain': 'ffrgb-bat15',
-        'name': 'Regensburg'
+        'domain': 'ffh',
+        'name': 'Freifunk Hannover'
       },
       {
-        'domain': 'ffrgb',
-        'name': 'Regensburg'
+        'domain': 'ffh.legacy',
+        'name': 'Legacy'
+      },
+      {
+        'domain': 'ffh.hameln',
+        'name': 'Hameln'
+      },
+      {
+        'domain': 'ffh.alfeld',
+        'name': 'Alfeld'
+      },
+      {
+        'domain': 'ffh.lenthe',
+        'name': 'Lenthe'
+      },
+      {
+        'domain': 'ffh.steinhude',
+        'name': 'Steinhude'
+      },
+      {
+        'domain': 'ffh.springe',
+        'name': 'Springe'
+      },
+      {
+        'domain': 'ffh.nordstadt',
+        'name': 'Nordstadt'
+      },
+      {
+        'domain': 'ffh.wunstorf',
+        'name': 'Wunstorf'
+      },
+      {
+        'domain': 'ffh.neustadt',
+        'name': 'Neustadt'
+      },
+      {
+        'domain': 'ffh.wettbergen',
+        'name': 'Wettbergen'
+      },
+      {
+        'domain': 'ffh.oberricklingen',
+        'name': 'Oberricklingen'
+      },
+      {
+        'domain': 'ffh.muehlenberg',
+        'name': 'Mühlenberg'
+      },
+      {
+        'domain': 'ffh.bornum',
+        'name': 'Bornum'
+      },
+      {
+        'domain': 'ffh.ricklingen',
+        'name': 'Ricklingen'
+      },
+      {
+        'domain': 'ffh.barsinghausen',
+        'name': 'Barsinghausen'
+      },
+      {
+        'domain': 'ffh.davenstedt',
+        'name': 'Davenstedt'
+      },
+      {
+        'domain': 'ffh.ahlem',
+        'name': 'Ahlem'
+      },
+      {
+        'domain': 'ffh.badenstedt',
+        'name': 'Badenstedt'
+      },
+      {
+        'domain': 'ffh.lindenmitte',
+        'name': 'Linden Mitte'
+      },
+      {
+        'domain': 'ffh.lindennord',
+        'name': 'Linden Nord'
+      },
+      {
+        'domain': 'ffh.lindensued',
+        'name': 'Linden Süd'
+      },
+      {
+        'domain': 'ffh.limmer',
+        'name': 'Limmer'
+      },
+      {
+        'domain': 'ffh.calenbergerneustadt',
+        'name': 'Calenberger Neustadt'
+      },
+      {
+        'domain': 'ffh.garbsen',
+        'name': 'Garbsen'
+      },
+      {
+        'domain': 'ffh.langenhagen',
+        'name': 'Langenhagen'
+      },
+      {
+        'domain': 'ffh.seelze',
+        'name': 'Seelze'
+      },
+      {
+        'domain': 'ffh.isernhagen',
+        'name': 'Isernhagen'
+      },
+      {
+        'domain': 'ffh.burgdorf',
+        'name': 'Burgdorf'
+      },
+      {
+        'domain': 'ffh.burgwedel',
+        'name': 'Burgwedel'
+      },
+      {
+        'domain': 'ffh.uetze',
+        'name': 'Uetze'
+      },
+      {
+        'domain': 'ffh.langenhagen',
+        'name': 'Langenhagen'
+      },
+      {
+        'domain': 'ffh.stoecken',
+        'name': 'Stöcken'
+      },
+      {
+        'domain': 'ffh.marienwerder',
+        'name': 'Marienwerder'
+      },
+      {
+        'domain': 'ffh.ledeburg',
+        'name': 'Ledeburg'
+      },
+      {
+        'domain': 'ffh.nordhafen',
+        'name': 'Nordhafen'
+      },
+      {
+        'domain': 'ffh.burg',
+        'name': 'Burg'
+      },
+      {
+        'domain': 'ffh.hainholz',
+        'name': 'Hainholz'
+      },
+      {
+        'domain': 'ffh.vahrenwald',
+        'name': 'Vahrenwald'
+      },
+      {
+        'domain': 'ffh.herrenhausen',
+        'name': 'Herrenhausen'
+      },
+      {
+        'domain': 'ffh.leinhausen',
+        'name': 'Leinhausen'
+      },
+      {
+        'domain': 'ffh.vinnhorst',
+        'name': 'Vinnhorst'
+      },
+      {
+        'domain': 'ffh.brinkhafen',
+        'name': 'Brinkhafen'
+      },
+      {
+        'domain': 'ffh.mitte',
+        'name': 'Mitte'
+      },
+      {
+        'domain': 'ffh.suedstadt',
+        'name': 'Südstadt'
+      },
+      {
+        'domain': 'ffh.bult',
+        'name': 'Bult'
+      },
+      {
+        'domain': 'ffh.zoo',
+        'name': 'Zoo'
+      },
+      {
+        'domain': 'ffh.wuelfel',
+        'name': 'Wülfel'
+      },
+      {
+        'domain': 'ffh.doehren',
+        'name': 'Döhren'
+      },
+      {
+        'domain': 'ffh.waldhausen',
+        'name': 'Waldhausen'
+      },
+      {
+        'domain': 'ffh.waldheim',
+        'name': 'Waldheim'
+      },
+      {
+        'domain': 'ffh.seelhorst',
+        'name': 'Seelhorst'
+      },
+      {
+        'domain': 'ffh.mittelfeld',
+        'name': 'Mittelfeld'
+      },
+      {
+        'domain': 'ffh.bemerode',
+        'name': 'Bemerode'
+      },
+      {
+        'domain': 'ffh.kirchrode',
+        'name': 'Kirchrode'
+      },
+      {
+        'domain': 'ffh.anderten',
+        'name': 'Anderten'
+      },
+      {
+        'domain': 'ffh.wuelferode',
+        'name': 'Wülferode'
+      },
+      {
+        'domain': 'ffh.laatzen',
+        'name': 'Laatzen'
+      },
+      {
+        'domain': 'ffh.sehnde',
+        'name': 'Sehnde'
+      },
+      {
+        'domain': 'ffh.sarstedt',
+        'name': 'Sarstedt'
+      },
+      {
+        'domain': 'ffh.pattensen',
+        'name': 'Pattensen'
+      },
+      {
+        'domain': 'ffh.heideviertel',
+        'name': 'Heideviertel'
+      },
+      {
+        'domain': 'ffh.misburgnord',
+        'name': 'Misburg Nord'
+      },
+      {
+        'domain': 'ffh.misburgsued',
+        'name': 'Misburg Süd'
+      },
+      {
+        'domain': 'ffh.kleefeld',
+        'name': 'Kleefeld'
+      },
+      {
+        'domain': 'ffh.grossbuchholz',
+        'name': 'Groß-Buchholz'
+      },
+      {
+        'domain': 'ffh.lahe',
+        'name': 'Lahe'
+      },
+      {
+        'domain': 'ffh.bothfeld',
+        'name': 'Bothfeld'
+      },
+      {
+        'domain': 'ffh.sahlkamp',
+        'name': 'Sahlkamp'
+      },
+      {
+        'domain': 'ffh.vahrenheide',
+        'name': 'Vahrenheide'
+      },
+      {
+        'domain': 'ffh.list',
+        'name': 'List'
+      },
+      {
+        'domain': 'ffh.oststadt',
+        'name': 'Oststadt'
+      },
+      {
+        'domain': 'ffh.lehrte',
+        'name': 'Lehrte'
+      },
+      {
+        'domain': 'ffh.isernhagensued',
+        'name': 'Isernhagen Süd'
+      },
+      {
+        'domain': 'ffh.umland',
+        'name': 'Umland'
+      },
+      {
+        'domain': 'ffh.wennigsen',
+        'name': 'Wennigsen'
+      },
+      {
+        'domain': 'ffh.gehrden',
+        'name': 'Gehrden'
+      },
+      {
+        'domain': 'ffh.hemmingen',
+        'name': 'Hemmingen'
+      },
+      {
+        'domain': 'ffh.ronnenberg',
+        'name': 'Ronnenberg'
+      },
+      {
+        'domain': 'ffh.peinewest',
+        'name': 'Peine West'
+      },
+      {
+        'domain': 'ffh.hildesheim',
+        'name': 'Hildesheim'
+      },
+      {
+        'domain': 'ffh.nienburg',
+        'name': 'Nienburg'
+      },
+      {
+        'domain': 'ffh.obernkirchen',
+        'name': 'Obernkirchen'
+      },
+      {
+        'domain': 'ffh.schwarmstedt',
+        'name': 'Schwarmstedt'
+      },
+      {
+        'domain': 'ffh.special_port',
+        'name': 'Special Port'
+      },
+      {
+        'domain': 'ffh.leetfeld',
+        'name': 'Leetfeld'
       }
     ],
     'linkList': [
       {
         'title': 'Impressum',
-        'href': '/verein/impressum/'
-      },
-      {
-        'title': 'Datenschutz',
-        'href': '/verein/datenschutz/'
+        'href': '/wiki/Freifunk/Impressum'
       }
     ]
   };

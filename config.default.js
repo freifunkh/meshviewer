@@ -1,8 +1,8 @@
 module.exports = function () {
   return {
     'reverseGeocodingApi': 'https://nominatim.openstreetmap.org/reverse',
-    'maxAge': 14,
-    'maxAgeAlert': 3,
+    'maxAge': 7,
+    'maxAgeAlert': 1,
     'nodeZoom': 18,
     'labelZoom': 13,
     'clientZoom': 15,
@@ -22,10 +22,10 @@ module.exports = function () {
         'name': 'node.coordinates',
         'value': 'GeoURI'
       },
-      //    {
-      //      "name": "node.contact",
-      //      "value": "owner"
-      //    },
+      {
+        'name': 'node.contact',
+        'value': 'owner'
+      },
 
       // Examples for functions
       // {
