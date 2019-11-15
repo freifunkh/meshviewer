@@ -16,10 +16,10 @@ module.exports = function () {
     'siteName': 'Freifunk Hannover',
     'mapLayers': [
       {
-        'name': 'OSM (by FF Aachen)',
-        'url': 'https:///tiles.aachen.freifunk.net/{z}/{x}/{y}.png',
+        'name': 'OpenStreetMap',
+        'url': 'https:///tiles.ffh.zone/{z}/{x}/{y}.png',
         'config': {
-          'attribution': '<a target="_blank" href="https://www.openstreetmap.org/">Karte hergestellt aus OpenStreetMap-Daten</a> | <a rel="license" target="_blank" href="https://opendatacommons.org/licenses/odbl/">Open Database License (ODbL)</a>',
+          'attribution': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           'maxZoom': 19
         }
       },
