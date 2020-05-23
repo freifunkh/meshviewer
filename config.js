@@ -3,10 +3,10 @@ module.exports = function () {
     // Variables are NODE_ID and NODE_NAME (only a-z0-9\- other chars are replaced with _)
     'nodeInfos': [
       {
-        'name': 'Clientstatistik',
+        'name': '',
         'href': 'https://stats.ffh.zone/dashboard/db/router-fur-meshviewer?var-node={NODE_ID}&from=now-12h&to=now-1m',
-        'image': 'https://stats.ffh.zone/render/dashboard-solo/db/router-fur-meshviewer?var-node={NODE_ID}&panelId=1&from=now-12h&to=now-1m&width=510&height=255&theme=light&_t={TIME}',
-        'title': 'Knoten {NODE_ID} - weitere Statistiken'
+        'image': 'https://hannover.freifunk.net/karte-statistik.jpg',
+        'title': 'Statistiken im neuen Fenster öffnen'
       }
     ],
     // Array of data provider are supported
