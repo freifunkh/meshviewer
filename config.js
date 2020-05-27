@@ -3,7 +3,7 @@ module.exports = function () {
     // Variables are NODE_ID and NODE_NAME (only a-z0-9\- other chars are replaced with _)
     'nodeInfos': [
       {
-        'name': '',
+        'name': 'Clientstatistik',
         'href': 'https://stats.ffh.zone/dashboard/db/router-fur-meshviewer?var-node={NODE_ID}&from=now-12h&to=now-1m',
         'image': 'https://hannover.freifunk.net/karte-statistik.jpg',
         'title': 'Statistiken im neuen Fenster öffnen'
